@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:bullseye
 
 # Create app directory
 WORKDIR /app
@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 EXPOSE 5000
-CMD [“python3”, “-m”, “gunicorn”, “-w”, “4”, “-b”, “0.0.0.0:5000”, "--certfile”, “/etc/letsencrypt/live/horoscope.wesselhuising.nl/fullchain.pem”, "--keyfile”, “/etc/letsencrypt/live/horoscope.wesselhuising.nl/privkey.pem”, “app:app”]
+CMD ["python", "-m", "gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "--certfile", "/etc/letsencrypt/live/uniqueyou.online/fullchain.pem", "--keyfile", "/etc/letsencrypt/live/uniqueyou.online/privkey.pem", "app:app"]
